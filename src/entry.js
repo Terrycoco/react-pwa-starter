@@ -8,8 +8,11 @@ import {responsiveStoreEnhancer} from 'redux-responsive';
 import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import rootRoute from 'routes/routes';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 
+//needed for onTouchTap (material-ui)
+injectTapEventPlugin();
 
 const apiurl = "http://api-tmarr.rhcloud.com/graphql";
 // const apiurl = "http://localhost:3090/graphql";
@@ -37,7 +40,7 @@ if (navigator.serviceWorker) {
 
 ReactDOM.render(
   <Provider store={store} >
-    <Router onUpdate={() => window.scrollTo(0, 0)} history={history} routes={rootRoute} />
+      <Router onUpdate={() => window.scrollTo(0, 0)} history={history} routes={rootRoute} />
   </Provider>
   , document.getElementById('root'));
 

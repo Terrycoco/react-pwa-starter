@@ -89,9 +89,9 @@ module.exports = {
         ],
       },
       { 
-        test: /\.scss$/i, 
-        loader: extractSASS.extract(['css-loader','sass-loader'])
-      }
+        test: /(\.scss|\.css)$/,
+        loader: ExtractTextPlugin.extract({fallbackLoader:'style-loader', loader: 'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader?sourceMap'})
+       }
     ]
   },
   resolve: {
