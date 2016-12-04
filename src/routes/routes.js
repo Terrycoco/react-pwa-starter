@@ -1,29 +1,24 @@
-//home is front-loaded
+
 import App from 'routes/App';
 import Home from 'routes/Home';
+import About from 'routes/About';
 
-function errorLoading(err) {
-  console.error('Dynamic page loading failed', err);
-}
-
-function loadRoute(cb) {
-  return (module) => cb(null, module.default);
-}
-
-export default {
-  component: App,
-  childRoutes: [
-   {
+const rootRoute = {
+   path: '/',
+   component: App,
+   indexRoute: { component: Home },
+   childRoutes: [
+    {
       path: '/',
-      component: Home
-   },
-   {
-      path: '/about',
-      getComponent(location, cb) {
-        System.import('routes/About')
-          .then(loadRoute(cb))
-          .catch(errorLoading);
-      }
-   }
-  ]
+      component: Home,
+      title: 'Home'
+    },
+
+    { path: '/about',
+      component: About,
+      title: 'About'
+    }
+   ]
 };
+   
+export default rootRoute;

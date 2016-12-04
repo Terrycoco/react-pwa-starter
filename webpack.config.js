@@ -19,6 +19,10 @@ const plugins = [
     'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
   }),
   new webpack.NamedModulesPlugin(),
+
+  // Allows error warnings but does not stop compiling.
+  new webpack.NoErrorsPlugin(),
+  
   extractSASS
 ];
 
@@ -61,7 +65,8 @@ module.exports = {
   },
   output: {
     path: staticsPath,
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: '/public/'
   },
   module: {
     rules: [

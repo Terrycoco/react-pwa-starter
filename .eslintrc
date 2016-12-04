@@ -5,7 +5,9 @@ parser:
   babel-eslint
 
 settings:
-  ecmascript: 6
+  ecmaVersion: 6
+
+sourceType: "module"
 
 ecmaFeatures:
   jsx: true
@@ -15,6 +17,8 @@ ecmaFeatures:
   forOf: true
   blockBindings: true
   arrowFunctions: true
+  spread: true
+  experimentalObjectRestSpread: true
 
 env:
   browser: true
@@ -31,3 +35,5 @@ rules:
   import/no-unresolved: 0
   import/extensions: 0
   react/jsx-filename-extension: 0
+
+
