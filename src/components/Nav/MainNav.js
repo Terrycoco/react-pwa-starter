@@ -27,7 +27,7 @@ class MainNav extends React.Component {
   render() {
     return(
      <div>
-       <AppBar      title="WikiWalki"
+       <AppBar      title="React PWA Starter"
                     onTouchTap={this.toggleDrawer.bind(this)}
                     iconElementLeft={<IconButton><NavigationOpen /></IconButton>}
                      />
